@@ -14,9 +14,9 @@
         <div>이름 : <input type="text" id = "name"></div> 
         <div>지역 : 
             <select id="city" onchange="changeCity();">
-                <option value="02">서울</option>
-                <option value="064">제주</option>
-        </select>
+                <!-- <option value="02">서울</option>
+                <option value="064">제주</option> -->
+            </select>
         </div>
         <div>동네 :
             <select name="" id="region_02">
@@ -28,6 +28,7 @@
                 <option value="">서귀포시</option>
             </select>
         </div>
+        <div>테스트 : <input type="text" id = "test"></div> 
         <button type="button" onclick="regist();">등록</button>
     </div> 
 
@@ -55,7 +56,61 @@
 
             // document.getElementById("name").value;
 
+            // let obj = {
+            // name: "",
+            // city: ""
+            // }; 
+            
+            // let obj = {
+            //     obj2: {
 
+            //     },
+            //     arr: []
+            // }//key와 value로 구성. 선언시점에 키 안적어도됨.
+
+            obj.name = s("#name").val();
+            obj.city = s("#city").val();
+
+            console.log(obj);
+        
+        }
+
+        function loadCity() {
+            let city = [{
+                code: "02", 
+                name: "서울"
+            },
+            {
+                code: "064",
+                name: "제주"
+            },
+            {
+                code: "051",
+                name: "부산"
+            }
+            ];
+
+            for(let i = 0; i<city.length ; i++) {
+
+                if(i == 0) {
+                    $('#city').append('<option value = "' + city[i].code + '"selected>' + city[i].name + '</option>');
+                }   else if(i == 1) {
+                    
+                }    else {
+                    $('#city').append('<option value = "' + city[i].code + '">' + city[i].name + '</option>');
+                }
+            }
+
+            // $('#city').append('<option value = "02" selected>서울</option>');
+            // $('#city').append('<option value = "064">제주</option>');
+        }
+
+        loadCity();
+
+
+
+        function printConsole(data) {
+            console.log(data);
         }
 
         function changeCity() {
@@ -74,6 +129,31 @@
             $('#region_064').hide();
             $('#region_'+city).show();
         }
+
+        //Var, let, const
+        var x = 1; //동일한 변수명을 선언해서 허용해줌.
+        x = x + 2;
+
+        let y = 2; //변수 중복선언 안됨.
+        y = y + 2;
+
+        const z = 1; //재할당조차 안됨. 절대 바뀌지 않는 값
+        z = z + 1 ;
+
+        document.getElementById("test").value = y;
+
+        // 숫자, 소수점 숫자, 문자, 참/거짓(boolean), 날짜, 오브젝트, 배열
+        let a = 1;
+        a = 1.12;
+        a = "jihui";
+        a = true; //false
+
+        
+        // alert(x);
+
+
+
+
 
     </script>
 </body>
